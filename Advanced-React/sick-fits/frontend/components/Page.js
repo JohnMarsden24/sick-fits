@@ -17,13 +17,12 @@ const GlobalStyle = createGlobalStyle`
     --lightGrey: #E1E1E1;
     --offWhite: #ededed;
     --maxWidth: 1000px;
-    --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.9);
+    --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
   }
 
   html {
     box-sizing: border-box;
-
-
+    font-size: 62.5%;
   }
 
   *, *:before, *:after {
@@ -31,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: radnika_next -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
@@ -39,10 +38,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
+    color: var(---black);
 
     &:hover {
-      color: var(--black);
+      text-decoration: underline;
     }
   }
 
@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
 const InnerStyles = styled.div`
   margin: 0 auto;
-  max-width: var(--max-width);
+  max-width: var(--maxWidth);
   padding: 2rem;
 `;
 
