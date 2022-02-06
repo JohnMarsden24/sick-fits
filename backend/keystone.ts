@@ -7,12 +7,14 @@ import {
   statelessSessions,
 } from "@keystone-next/keystone/session";
 
+import { Role } from "./schemas/Role";
 import { OrderItem } from "./schemas/OrderItem";
 import { Order } from "./schemas/Order";
 import { User } from "./schemas/User";
 import { Product } from "./schemas/Product";
 import { ProductImage } from "./schemas/ProductImage";
 import { insertSeedData } from "./seed-data";
+import { permissionsList } from "./schemas/fields";
 import { CartItem } from "./schemas/CartItem";
 import { extendGraphqlSchema } from "./mutations/index";
 import { sendPasswordResetEmail } from "./lib/mail";
@@ -66,15 +68,15 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {
       // Show the UI only for people who pass this test
       isAccessAllowed: ({ session }) => !!session?.data,
     },
-    // TODO add session values
     session: withItemData(statelessSessions(sessionConfig), {
-      User: "id",
+      User: `id name email role { ${permissionsList.join(" ")} }`,
     }),
   })
 );
