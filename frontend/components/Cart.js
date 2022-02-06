@@ -6,6 +6,7 @@ import CartStyles from './styles/CartStyles';
 import Supreme from './styles/Supreme';
 import CloseButton from './styles/CloseButton';
 import useUser from './User';
+import Checkout from './Checkout';
 
 export default function Cart() {
   const user = useUser();
@@ -28,6 +29,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>{formatMoney(calcTotalPrice(user.cart))}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );
