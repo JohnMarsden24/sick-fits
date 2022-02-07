@@ -20,7 +20,6 @@ export default function Product({ product }) {
       </Title>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
       <p>{product.description}</p>
-      {/* TODO: Add buttons */}
       <div className="buttonList">
         <Link
           href={{
