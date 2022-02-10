@@ -30,6 +30,10 @@ App.getInitialProps = async function ({ Component, ctx }) {
     pageProps = await Component.getInitialProps(ctx);
   }
 
+  // console.log(JSON.stringify(pageProps, null, 4));
+  // console.log(JSON.stringify(Component, null, 4));
+  // console.log(ctx);
+
   pageProps.query = ctx.query;
   return { pageProps };
 };
