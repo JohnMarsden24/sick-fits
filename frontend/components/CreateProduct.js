@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import { useRouter } from 'next/dist/client/router';
+import router from 'next/router';
 
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
@@ -8,7 +8,7 @@ import Form from './styles/Form';
 import DisplayError from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
 
-const CREATE_PRODUCT_MUTATION = gql`
+export const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
     # Which variables are getting passed in?
     $name: String!
@@ -35,13 +35,11 @@ const CREATE_PRODUCT_MUTATION = gql`
 
 export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
-    name: 'T-shirt',
+    name: '',
     image: '',
-    price: 2400,
-    description: 'Dummy t-shirt description',
+    price: 0,
+    description: '',
   });
-
-  const router = useRouter();
 
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,

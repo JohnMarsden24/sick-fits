@@ -1,4 +1,4 @@
-import RequestReset from '../components/RequesttReset';
+import RequestReset from '../components/RequestReset';
 import Reset from '../components/Reset';
 
 export default function ResetPage({ query }) {

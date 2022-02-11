@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
-import RequestReset from '../components/RequesttReset';
+import RequestReset from '../components/RequestReset';
 
 const Grid = styled.div`
   display: grid;
