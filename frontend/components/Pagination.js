@@ -27,12 +27,12 @@ export default function Pagination({ page }) {
     <DisplayError error={error} />;
   }
 
-  const { count } = data._allProductsMeta;
+  const count = data?._allProductsMeta.count || 1;
 
   const pageCount = Math.ceil(count / perPage);
 
   return (
-    <PaginationStyles>
+    <PaginationStyles data-testid="pagination">
       <Head>
         <title>
           Sick fits - Page {page} of {count}
