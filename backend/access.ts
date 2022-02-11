@@ -61,9 +61,9 @@ export const rules = {
     }
 
     if (permissions.canManageProducts({ session })) {
-      return true;
+      return true; // They can read everything!
     }
-
+    // They should only see available products (based on the status field)
     return { status: "AVAILABLE" };
   },
   canManageUsers({ session }: ListAccessArgs) {
